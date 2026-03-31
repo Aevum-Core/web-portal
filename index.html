@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aevum Core — The Local-First Intelligence Engine</title>
+    <style>
+        :root {
+            --bg: #0b0c10;
+            --surface: #1f2833;
+            --text-main: #c5c6c7;
+            --accent: #66fcf1;
+            --secondary: #45a29e;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .halo {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(102, 252, 241, 0.15) 0%, rgba(11, 12, 16, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
+            animation: breathe 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .container {
+            z-index: 2;
+            max-width: 800px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(31, 40, 51, 0.5);
+            border: 1px solid rgba(102, 252, 241, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            color: white;
+            font-weight: 300;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: var(--text-main);
+        }
+
+        .button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent);
+            padding: 15px 35px;
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            background-color: var(--accent);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="halo"></div>
+
+    <div class="container">
+        <h1>Aevum Core</h1>
+        <h2>The Local-First Intelligence Engine</h2>
+        <p>Aevum Core is an AI-native runtime architecture designed to map and comprehend chronological cognitive graphs entirely on-device, processing massive datasets exclusively via Apple Silicon Metal—preserving absolute Zero-Trust privacy structurally.</p>
+        <a href="#" class="button">Launching Soon on App Store</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Aevum. All rights reserved.</p>
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="terms.html">Terms of Use</a> | 
+        <a href="support.html">Support</a>
+    </footer>
+
+</body>
+</html>
