@@ -1,143 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aevum Core — The Local-First Intelligence Engine</title>
+    <title>Aevum Core — Local-First Intelligence</title>
     <style>
         :root {
-            --bg: #0b0c10;
-            --surface: #1f2833;
-            --text-main: #c5c6c7;
+            --bg: #000000;
+            --surface: rgba(31, 40, 51, 0.65);
+            --text-main: #ffffff;
+            --text-muted: #8892b0;
             --accent: #66fcf1;
             --secondary: #45a29e;
+            --orb-core: #ffffff;
+            --orb-glow-1: rgba(102, 252, 241, 0.8);
+            --orb-glow-2: rgba(69, 162, 158, 0.4);
+            --orb-glow-3: rgba(11, 12, 16, 0.1);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            overflow-x: hidden;
+            overflow: hidden;
+            position: relative;
         }
 
-        .halo {
+        /* Ambient Background Grid */
+        .ambient-grid {
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(102, 252, 241, 0.15) 0%, rgba(11, 12, 16, 0) 70%);
-            border-radius: 50%;
-            z-index: 1;
-            pointer-events: none;
-            animation: breathe 8s ease-in-out infinite alternate;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(102, 252, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 252, 241, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            opacity: 0.5;
+            mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
         }
 
-        @keyframes breathe {
-            0% { transform: scale(0.9); opacity: 0.8; }
-            100% { transform: scale(1.1); opacity: 1; }
+        .orb-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 350px;
+            width: 350px;
+            margin-bottom: -20px;
         }
 
-        .container {
+        .orb {
+            position: relative;
             z-index: 2;
-            max-width: 800px;
-            padding: 40px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background-color: rgba(31, 40, 51, 0.5);
-            border: 1px solid rgba(102, 252, 241, 0.1);
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            width: 340px;
+            height: 340px;
+            object-fit: cover;
+            border: none;
+            outline: none;
+            mix-blend-mode: screen; 
+            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 65%);
+            mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 65%);
+            animation: pulse-video 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            pointer-events: none;
+        }
+
+        /* Micro-animations */
+        @keyframes pulse-video {
+            0% { transform: scale(0.95); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(0.95); }
+        }
+
+        /* Glassmorphism Presentation UI */
+        .glass-panel {
+            z-index: 10;
+            max-width: 650px;
+            text-align: center;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            background: var(--surface);
+            border: 1px solid rgba(102, 252, 241, 0.15);
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            margin-top: 4vh; /* Force the panel lower dynamically based on screen height */
+            margin-bottom: 8vh; /* Prevents bottom clipping and naturally floats the group */
+            animation: floatUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes floatUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
-            color: var(--accent);
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 5px;
+            background: linear-gradient(180deg, #ffffff 0%, #b0b0b0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h2 {
-            color: white;
-            font-weight: 300;
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: var(--secondary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: 40px;
-            color: var(--text-main);
+            margin-bottom: 35px;
+            font-weight: 300;
         }
 
-        .button {
+        /* Dynamic Button */
+        .primary-action {
             display: inline-block;
-            background-color: transparent;
+            background: transparent;
             color: var(--accent);
-            padding: 15px 35px;
-            border: 2px solid var(--accent);
+            padding: 14px 40px;
             border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-decoration: none;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
+            border: 1px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.1);
+        }
+
+        .primary-action::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--accent);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .primary-action:hover {
+            color: var(--bg);
+            border-color: transparent;
+            box-shadow: 0 0 30px rgba(102, 252, 241, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .primary-action:hover::before {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .footer-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
             letter-spacing: 1px;
         }
 
-        .button:hover {
-            background-color: var(--accent);
-            color: var(--bg);
-            box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 30px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            z-index: 2;
-            width: 100%;
-            text-align: center;
-        }
-
-        footer a {
-            color: var(--secondary);
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
+        .footer-nav a:hover {
             color: var(--accent);
         }
     </style>
 </head>
+
 <body>
 
-    <div class="halo"></div>
+    <div class="ambient-grid"></div>
 
-    <div class="container">
-        <h1>Aevum Core</h1>
-        <h2>The Local-First Intelligence Engine</h2>
-        <p>Aevum Core is an AI-native runtime architecture designed to map and comprehend chronological cognitive graphs entirely on-device, processing massive datasets exclusively via Apple Silicon Metal—preserving absolute Zero-Trust privacy structurally.</p>
-        <a href="#" class="button">Launching Soon on App Store</a>
+    <div class="orb-container">
+        <video class="orb" autoplay loop muted playsinline>
+            <source src="Liv_ORB_YT.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="glass-panel">
+        <h1>Aevum</h1>
+        <h2>Intelligence OS</h2>
+        <p>A completely private, local-first neural companion that captures your interactions and maps your continuous behavioral graph exclusively on-device. Zero cloud telemetry. Absolute architectural privacy.</p>
+        <a href="#" class="primary-action">Initializing Pulse...</a>
     </div>
 
     <footer>
-        <p>&copy; 2026 Aevum. All rights reserved.</p>
-        <a href="privacy.html">Privacy Policy</a> | 
-        <a href="terms.html">Terms of Use</a> | 
-        <a href="support.html">Support</a>
+        <div class="footer-nav">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="mailto:support@aevum.world">Support</a>
+        </div>
     </footer>
 
 </body>
+
 </html>
