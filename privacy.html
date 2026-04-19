@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aevum Core — Privacy Policy</title>
+    <title>Aevum — Privacy Policy</title>
     <style>
         :root {
             --bg: #0b0c10;
@@ -14,7 +13,6 @@
             --accent: #66fcf1;
             --secondary: #45a29e;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
@@ -23,9 +21,8 @@
             padding: 40px;
             line-height: 1.6;
         }
-
         .container {
-            max-width: 800px;
+            max-width: 860px;
             margin: 0 auto;
             background-color: var(--surface);
             padding: 50px;
@@ -33,87 +30,46 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             border-top: 4px solid var(--accent);
         }
-
-        h1, h2, h3 {
-            color: var(--accent);
-            margin-top: 30px;
-        }
-
-        h1 {
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 20px;
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            font-size: 1.6rem;
-            color: white;
-            margin-top: 40px;
-        }
-
-        p, li {
-            font-size: 1.1rem;
-            color: var(--text-main);
-        }
-
-        .header-meta {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 40px;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .footer-nav {
-            margin-top: 50px;
-            text-align: center;
-            border-top: 1px solid #333;
-            padding-top: 20px;
-        }
+        h1, h2 { color: var(--accent); margin-top: 30px; }
+        h1 { border-bottom: 2px solid var(--secondary); padding-bottom: 20px; font-size: 2.5rem; }
+        h2 { font-size: 1.6rem; color: white; margin-top: 40px; }
+        p, li { font-size: 1.05rem; color: var(--text-main); }
+        .header-meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .footer-nav { margin-top: 50px; text-align: center; border-top: 1px solid #333; padding-top: 20px; }
     </style>
 </head>
-
 <body>
-
     <div class="container">
         <h1>Privacy Policy</h1>
         <div class="header-meta">
-            <strong>Last Updated:</strong> March 2026<br>
+            <strong>Last Updated:</strong> April 19, 2026<br>
         </div>
 
-        <p>Aevum Core ("the App") is a local-first, on-device contextual intelligence system developed by Boaz Thomas ("the Developer"). This Privacy Policy details the strict local boundary of your data.</p>
+        <p>Aevum (“the App”) is designed as a local-first intelligence system developed by Boaz Thomas (“the Developer”). This policy explains the current privacy posture of the public release baseline.</p>
 
-        <h2>1. Data Collection & Processing (Zero-Cloud Core)</h2>
-        <p>All core reasoning, semantic extraction, and behavioral heuristic mapping occurs exclusively on your device utilizing native Apple security architectures. The App does NOT transmit your conversational inputs to external third-party cloud servers without your explicit real-time consent.</p>
+        <h2>1. Local-First Processing</h2>
+        <p>Aevum is designed so that personal thinking, captures, and memory-graph reasoning are processed on-device. The app experience is intended to keep your private thinking local to your device rather than sending it to the internet for reasoning.</p>
 
-        <h2>2. Geographic & Contextual Awareness</h2>
-        <p>To establish localized intelligence mapping, the App relies on local Apple CoreLocation APIs. The generated spatial coordinates never leave the encrypted Local Application Sandbox and are strictly utilized for internal memory weighting.</p>
+        <h2>2. Model Delivery</h2>
+        <p>To enable local execution, model artifacts may be securely downloaded to your device. This download path is part of product delivery and does not change the intended local processing posture for your personal captures and reasoning flow.</p>
 
-        <h2>3. Cloud Batching Consent</h2>
-        <p>If the internal intelligence governor determines a request exceeds local execution bounds, the system freezes. The App will physically present an explicit, opt-in consent dialog prior to rerouting any encrypted payload to an async computing server.</p>
+        <h2>3. Data Retention and User Control</h2>
+        <p>Your local graph and interaction history reside in the application data layer on your device. You may clear local app data or delete the application to remove locally stored interaction history from that device.</p>
 
-        <h2>4. Your GDPR / User Rights</h2>
-        <ul>
-            <li><strong>Right to Erasure:</strong> Because 100% of your generated behavioral tree natively resides on-device, you possess the immediate and absolute Right to Erasure simply by invoking the internal "Wipe Cache" command, or by deleting the App entirely.</li>
-            <li><strong>Data Portability:</strong> Aevum empowers you to export your data into Transferable Knowledge Tokens cryptographically signed locally.</li>
-        </ul>
+        <h2>4. Permissions and Sensors</h2>
+        <p>Aevum may request device permissions such as microphone, speech recognition, camera, photos, biometrics, or calendar access depending on the features you use. These permissions should be understood as feature-dependent and governed by your device settings.</p>
 
-        <h2>5. Third-Party Analytics</h2>
-        <p>The Developer explicitly disables hidden telemetry. Only aggregated, anonymized crash diagnostics provided strictly via the Apple opt-in App Store mechanism are ever viewed by the Developer.</p>
+        <h2>5. Diagnostics and Telemetry</h2>
+        <p>The Developer does not intend to use hidden behavioral telemetry for the core reasoning flow. Limited diagnostics may be available through Apple-controlled crash and platform reporting mechanisms where enabled by the platform and the user.</p>
 
-        <p><strong>Contact:</strong> <a href="mailto:compliance@aevum.co">compliance@aevum.co</a></p>
+        <h2>6. Contact</h2>
+        <p><strong>Privacy contact:</strong> <a href="mailto:compliance@aevum.world">compliance@aevum.world</a></p>
 
         <div class="footer-nav">
             <a href="index.html">← Back to Home</a> | <a href="terms.html">Terms of Use</a> | <a href="support.html">Support</a>
         </div>
     </div>
-
 </body>
 </html>
