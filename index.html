@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aevum Core — Local-First Intelligence</title>
+    <title>Aevum — Local-First Intelligence</title>
     <style>
         :root {
             --bg: #000000;
-            --surface: rgba(31, 40, 51, 0.65);
+            --surface: rgba(31, 40, 51, 0.68);
             --text-main: #ffffff;
-            --text-muted: #8892b0;
+            --text-muted: #9aa6b2;
             --accent: #66fcf1;
             --secondary: #45a29e;
-            --orb-core: #ffffff;
-            --orb-glow-1: rgba(102, 252, 241, 0.8);
-            --orb-glow-2: rgba(69, 162, 158, 0.4);
-            --orb-glow-3: rgba(11, 12, 16, 0.1);
         }
 
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg);
+            background: #000;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -40,18 +31,13 @@
             position: relative;
         }
 
-        /* Ambient Background Grid */
         .ambient-grid {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: 
+            inset: 0;
+            background-image:
                 linear-gradient(rgba(102, 252, 241, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(102, 252, 241, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
-            z-index: 0;
             opacity: 0.5;
             mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
             -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
@@ -69,41 +55,35 @@
         }
 
         .orb {
-            position: relative;
-            z-index: 2;
             width: 340px;
             height: 340px;
             object-fit: cover;
-            border: none;
-            outline: none;
-            mix-blend-mode: screen; 
+            mix-blend-mode: screen;
             -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 65%);
             mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 65%);
             animation: pulse-video 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
             pointer-events: none;
         }
 
-        /* Micro-animations */
         @keyframes pulse-video {
             0% { transform: scale(0.95); }
             50% { transform: scale(1.02); }
             100% { transform: scale(0.95); }
         }
 
-        /* Glassmorphism Presentation UI */
         .glass-panel {
             z-index: 10;
-            max-width: 650px;
+            max-width: 720px;
             text-align: center;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             background: var(--surface);
-            border: 1px solid rgba(102, 252, 241, 0.15);
+            border: 1px solid rgba(102, 252, 241, 0.16);
             padding: 40px 50px;
             border-radius: 20px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-            margin-top: 4vh; /* Force the panel lower dynamically based on screen height */
-            margin-bottom: 8vh; /* Prevents bottom clipping and naturally floats the group */
+            margin-top: 4vh;
+            margin-bottom: 8vh;
             animation: floatUp 1s ease-out forwards;
             opacity: 0;
             transform: translateY(30px);
@@ -137,14 +117,19 @@
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 35px;
+            line-height: 1.7;
+            margin-bottom: 18px;
             font-weight: 300;
         }
 
-        /* Dynamic Button */
+        .disclosure {
+            font-size: 0.96rem;
+            color: #b7c2d0;
+            margin-bottom: 30px;
+        }
+
         .primary-action {
             display: inline-block;
             background: transparent;
@@ -165,7 +150,7 @@
         .primary-action::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            inset: 0;
             background: var(--accent);
             opacity: 0;
             z-index: -1;
@@ -179,11 +164,8 @@
             transform: translateY(-2px);
         }
 
-        .primary-action:hover::before {
-            opacity: 1;
-        }
+        .primary-action:hover::before { opacity: 1; }
 
-        /* Footer */
         footer {
             position: absolute;
             bottom: 30px;
@@ -201,14 +183,10 @@
             letter-spacing: 1px;
         }
 
-        .footer-nav a:hover {
-            color: var(--accent);
-        }
+        .footer-nav a:hover { color: var(--accent); }
     </style>
 </head>
-
 <body>
-
     <div class="ambient-grid"></div>
 
     <div class="orb-container">
@@ -219,18 +197,19 @@
 
     <div class="glass-panel">
         <h1>Aevum</h1>
-        <h2>Intelligence OS</h2>
-        <p>A completely private, local-first neural companion that captures your interactions and maps your continuous behavioral graph exclusively on-device. Zero cloud telemetry. Absolute architectural privacy.</p>
-        <a href="#" class="primary-action">Locked in. iOS drop loading 🔒</a>
+        <h2>Local-First Intelligence</h2>
+        <p>Aevum is a local-first intelligence system for private thinking, capture, and reflection. Your thoughts, captures, and memory graph are designed to be processed on-device rather than sent to the internet for reasoning.</p>
+        <p class="disclosure">To enable local execution, model artifacts may be securely downloaded to your device. Personal thinking and memory-graph reasoning are intended to remain local to the app experience.</p>
+        <a href="https://private.aevum.world" class="primary-action">Private Access</a>
     </div>
 
     <footer>
         <div class="footer-nav">
             <a href="privacy.html">Privacy Policy</a>
-            <a href="mailto:support@aevum.world">Support</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="support.html">Support</a>
+            <a href="https://private.aevum.world">Private Access</a>
         </div>
     </footer>
-
 </body>
-
 </html>
