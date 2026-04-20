@@ -68,6 +68,15 @@
     </style>
 </head>
 <body>
+    <div id="header"></div>
+
+<script>
+fetch('/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+  });
+</script>
     <div class="container">
         <h1>Support</h1>
         <p>Need help with Aevum? For technical support, product questions, or privacy-related requests, please contact the team directly.</p>
