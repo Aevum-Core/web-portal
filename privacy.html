@@ -14,26 +14,158 @@
             --secondary: #45a29e;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #000;
             color: var(--text-main);
             margin: 0;
-            padding: 40px;
+            padding: 24px 16px 40px;
             line-height: 1.6;
+        }
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            width: min(1040px, 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 18px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            background: rgba(8, 10, 14, 0.72);
+            border: 1px solid rgba(102, 252, 241, 0.12);
+            border-radius: 18px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            flex: 0 0 auto;
+        }
+        .brand-mark video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: screen;
+            opacity: 0.95;
+            pointer-events: none;
+        }
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .brand-name {
+            font-size: 0.96rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+        .brand-tag {
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .header-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
         }
         .container {
             max-width: 860px;
             margin: 0 auto;
             background-color: var(--surface);
             padding: 50px;
-            border-radius: 16px;
+            border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            border-top: 4px solid var(--accent);
+            border: 1px solid rgba(102, 252, 241, 0.16);
         }
         h1, h2 { color: var(--accent); margin-top: 30px; }
         h1 { border-bottom: 2px solid var(--secondary); padding-bottom: 20px; font-size: 2.5rem; }
         h2 { font-size: 1.6rem; color: white; margin-top: 40px; }
         p, li { font-size: 1.05rem; color: var(--text-main); }
+        .header-meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .footer-nav { margin-top: 50px; text-align: center; border-top: 1px solid #333; padding-top: 20px; }
+        @media (max-width: 700px) {
+            .site-header {
+                top: 12px;
+                padding: 10px 14px;
+                margin-bottom: 16px;
+            }
+            .container {
+                padding: 28px 20px;
+            }
+            h1 { font-size: 2.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Aevum home">
+            <span class="brand-mark">
+                <video autoplay loop muted playsinline>
+                    <source src="Liv_ORB_YT.mp4" type="video/mp4">
+                </video>
+            </span>
+            <span class="brand-copy">
+                <span class="brand-name">Aevum</span>
+                <span class="brand-tag">Local-First Intelligence</span>
+            </span>
+        </a>
+        <a class="header-link" href="https://private.aevum.world">Private Access</a>
+    </header>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <div class="header-meta">
+            <strong>Last Updated:</strong> April 19, 2026<br>
+        </div>
+
+        <p>Aevum (“the App”) is designed as a local-first intelligence system developed by Boaz Thomas (“the Developer”). This policy explains the current privacy posture of the public release baseline.</p>
+
+        <h2>1. Local-First Processing</h2>
+        <p>Aevum is designed so that personal thinking, captures, and memory-graph reasoning are processed on-device. The app experience is intended to keep your private thinking local to your device rather than sending it to the internet for reasoning.</p>
+
+        <h2>2. Model Delivery</h2>
+        <p>To enable local execution, model artifacts may be securely downloaded to your device. This download path is part of product delivery and does not change the intended local processing posture for your personal captures and reasoning flow.</p>
+
+        <h2>3. Data Retention and User Control</h2>
+        <p>Your local graph and interaction history reside in the application data layer on your device. You may clear local app data or delete the application to remove locally stored interaction history from that device.</p>
+
+        <h2>4. Permissions and Sensors</h2>
+        <p>Aevum may request device permissions such as microphone, speech recognition, camera, photos, biometrics, or calendar access depending on the features you use. These permissions should be understood as feature-dependent and governed by your device settings.</p>
+
+        <h2>5. Diagnostics and Telemetry</h2>
+        <p>The Developer does not intend to use hidden behavioral telemetry for the core reasoning flow. Limited diagnostics may be available through Apple-controlled crash and platform reporting mechanisms where enabled by the platform and the user.</p>
+
+        <h2>6. Contact</h2>
+        <p><strong>Privacy contact:</strong> <a href="mailto:compliance@aevum.world">compliance@aevum.world</a></p>
+
+        <div class="footer-nav">
+            <a href="index.html">← Back to Home</a> | <a href="terms.html">Terms of Use</a> | <a href="support.html">Support</a>
+        </div>
+    </div>
+</body>
+</html>
         .header-meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px; }
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
